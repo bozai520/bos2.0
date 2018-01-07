@@ -67,7 +67,7 @@ public class PromotionAction extends ActionSupport implements ModelDriven<Promot
 		String uuid = UUID.randomUUID().toString();
 		System.out.println("titleImgFileFileName"+titleImgFileFileName);
 		String ext = titleImgFileFileName.substring(titleImgFileFileName.lastIndexOf("."));
-		String filename = uuid +"/"+ext;
+		String filename = uuid+ext;
 		//将文件上传
 		File file = new File(realPath, filename);
 		
