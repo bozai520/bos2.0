@@ -23,42 +23,59 @@
 						[{
 							field: 'id',
 							title: '编号',
+							align: 'center',
 							width: 100,
 							checkbox: true
 						}, {
 							field: 'title',
 							title: '宣传概要（标题）',
+							align: 'center',
 							width: 200
 						}, {
 							field: 'titleImg',
 							title: '宣传图片',
+							align: 'center',
 							width: 200,
 							formatter:function(value,row,index){
-								return "<img src='"+value+"' width='100' height='100'>";
+								return "<img src='"+value+"' width='140' height='100'>";
 							}
 						},{
 							field: 'startDate',
 							title: '发布时间',
-							width: 100
+							align: 'center',
+							width: 100,
+							formatter:function(value,row,index){
+								var result = value.replace("T"," ");
+								return result;
+							}
 						}, {
 							field: 'endDate',
 							title: '实效时间',
-							width: 100
+							align: 'center',
+							width: 100,
+							formatter:function(value,row,index){
+								var result = value.replace("T"," ");
+								return result;
+							}
 						}, {
 							field: 'updateTime',
 							title: '更新时间',
+							align: 'center',
 							width: 100
 						}, {
 							field: 'updateUnit',
 							title: '更新单位',
+							align: 'center',
 							width: 100
 						}, {
 							field: 'updateUser',
 							title: '更新人',
+							align: 'center',
 							width: 100
 						}, {
 							field: 'status',
 							title: '状态',
+							align: 'center',
 							width: 100,
 						formatter:function(value,row,index){
 								var result = value==1 ? "正在进行中":"已经结束";
@@ -68,8 +85,8 @@
 									result = "已经结束";
 								} */
 								return result;
-							}
-						}]
+						}
+					}]
 					],
 					pagination: true,
 					toolbar: [{
