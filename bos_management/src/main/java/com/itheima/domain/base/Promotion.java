@@ -57,10 +57,12 @@ public class Promotion implements Serializable {
 	}
 
 	public String getTitleImg() {
+		
 		return titleImg;
 	}
 
 	public void setTitleImg(String titleImg) {
+		
 		this.titleImg = titleImg;
 	}
 
@@ -121,12 +123,8 @@ public class Promotion implements Serializable {
 	}
 
 	public String getDescription() {
-		String headUrl = "http://localhost:9999/bos_management/";
-		if(description.contains(headUrl)){
-			return description;
-		}
 		
-		return headUrl+description;
+			return description;
 	}
 
 	public void setDescription(String description) {

@@ -59,7 +59,16 @@
 						}, {
 							field: 'status',
 							title: '状态',
-							width: 100
+							width: 100,
+						formatter:function(value,row,index){
+								var result = value==1 ? "正在进行中":"已经结束";
+								/* if(value==1){
+									result = "正在进行中";
+								}else{
+									result = "已经结束";
+								} */
+								return result;
+							}
 						}]
 					],
 					pagination: true,
