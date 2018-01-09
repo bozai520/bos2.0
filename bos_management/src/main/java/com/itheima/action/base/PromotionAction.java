@@ -17,8 +17,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 
-import com.itheima.domain.base.Promotion;
 import com.itheima.service.base.PromotionService;
+import com.itheima.take_delivery.base.Promotion;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
