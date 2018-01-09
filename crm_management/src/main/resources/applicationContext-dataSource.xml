@@ -51,7 +51,7 @@
 		<!-- 加载jpa注解类 -->
 		<property name="packagesToScan">
 			<list>
-				<value>com.itheima.domain.base</value>
+				<value>com.itheima.*</value>
 			</list>
 		</property>
 		<!-- JPA方言 如果配置了jpaVendorAdapter，这项可以不配置 <property name="jpaDialect"> <bean 
