@@ -30,6 +30,10 @@
 		</div>
 	</div>
 </section>
+
+
+
+
 <!-- promotion area-->
 <section class="promotion">
 	<div class="container">
@@ -37,22 +41,23 @@
 			<h2 class="text-center"><span class="maintitle">活动促销</span></h2>
 			<p class="text-center"><span class="subtitle">ACTIVITY PROMOTION</span></p>
 		</div>
-
-		<div class="row">
-			<div class="col-sm-6 col-md-3">
+		<div class="row"  ng-app="mainapp" ng-controller="maincon">
+		<div class="row" >
+			
+			<div class="col-sm-6 col-md-3" ng-repeat="pl in pageList">
 				<div class="thumbnail">
 					<img src="images/show/suyun/promotion1.png" alt="活动一">
-
 					<div class="caption">
-						<p>进入x月，中俄跨境电商物流服务又添 喜讯：速运快递特惠开通了中国大陆...
+						<p>{{pl.title}}
 						</p>
-
-						<p class="text-right status"><span>进行中</span></p>
-						<p class="text-right grey">20xx.xx.xx-20xx.xx.xx</p>
-						<p class="text-right grey">中国大陆适用</p>
+						<p class="text-right status"><span>{{pl.status}}</span></p>
+						<p class="text-right grey">{{pl.startDate}}-{{pl.endDate}}</p>
+						<p class="text-right grey">{{pl.activeScope}}</p>
 					</div>
 				</div>
 			</div>
+			
+			
 			<div class="col-sm-6 col-md-3">
 				<div class="thumbnail">
 					<img src="images/show/suyun/promotion2.png" alt="活动二">
@@ -67,6 +72,8 @@
 					</div>
 				</div>
 			</div>
+			
+			
 			<div class="col-sm-6 col-md-3">
 				<div class="thumbnail">
 					<img src="images/show/suyun/promotion3.png" alt="活动三">
@@ -81,10 +88,12 @@
 					</div>
 				</div>
 			</div>
+			
+			
+			
 			<div class="col-sm-6 col-md-3">
 				<div class="thumbnail">
 					<img src="images/show/suyun/promotion4.png" alt="活动四">
-
 					<div class="caption">
 						<p>关于杭州举办“20国集团领导人第1x次 峰会”期间我司收派服务调整的通知...
 						</p>
@@ -95,16 +104,17 @@
 					</div>
 				</div>
 			</div>
-
+			
 		</div>
-
 		<p class="text-center more">
 			<a class="btn btn-danger" href="#/promotion" >更多活动促销</a>
 		</p>
-
 	</div>
-
 </section>
+
+
+
+
 <!-- news area-->
 <section class="newsarea">
 	<div class="col-md-6 col-md-offset-6 newslist">
@@ -190,4 +200,25 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<!-- <script type="text/javascript">
+		//初始化模块
+		//<div class="row"  ng-app="mainapp" ng-controller="maincon">
+		var mainapp = angular.module("mainapp",[]);
+		
+		//定义控制器
+		mainapp.constant("maincon",["$scope","$http",function($scope,$http){
+			//当页面记载时获取数据：
+			$http({
+				method:'GET',
+				url:'promotion_pageQuery.action',
+			}).success(function(data,status,headers,config){
+				$scope.pageList = data.pageList;
+				alert(data);
+			}).error(function(data,status,headers,config){
+				alert("数据查询出错");
+			})
+		}]);
+	</script> -->
 </section>

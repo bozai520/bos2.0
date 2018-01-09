@@ -19,14 +19,14 @@
 								<li>华北</li>
 							</ul>
 						</div>
-						<div class="col-sm-6 col-md-3" ng-repeat="item in pageItems">
+						<div class="col-sm-6 col-md-3" ng-repeat="item in pageItems" >
 							<div class="thumbnail">
 								<img ng-src="{{item.titleImg}}" alt="活动一">
-
 								<div class="caption">
-									<p><a href="#/promotion_detail">{{item.title}}</a></p>
+									<p><a href="#/promotion_detail/{{item.id}}">{{item.title}}</a></p>
 									<p class="text-right status">
-										<span>进行中</span>
+										<span ng-show="item.status=='1'">进行中</span>
+										<span ng-show="item.status=='2'">已经结束</span>
 									</p>
 									<p class="text-right grey">{{item.startDate}}—{{item.endDate}}</p>
 									<p class="text-right grey">{{item.activeScope}}</p>

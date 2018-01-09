@@ -167,8 +167,10 @@
 					templateUrl: 'myhome.html'
 				}).when("/promotion", {
 					templateUrl: 'promotion.html'
-				}).when("/promotion_detail", {
-					templateUrl: 'promotion_detail.html'
+				}).when("/promotion_detail/:id", {
+					templateUrl: function($routeParams){
+						return "promotion_showDetail.action?id=" + $routeParams.id;
+					}
 				}).otherwise({
 					redirectTo: '/'
 				})
@@ -181,6 +183,7 @@
 			// 在线下单控制器
 			bosfore_app.controller("orderCtrl",["$scope",function($scope){
 			}]);
+		</script>
 		</script>
 	</body>
 	<script src="js/self/page.js"></script>
