@@ -1,5 +1,7 @@
 package com.itheima.service.base;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import com.itheima.domain.base.Courier;
@@ -18,4 +20,8 @@ public interface CourierService {
 
 	//数据批量还原数据
 	public void doRestore(String[] arr);
+
+	
+	//不带分页的全查询
+	public List<Courier> findAll();
 }

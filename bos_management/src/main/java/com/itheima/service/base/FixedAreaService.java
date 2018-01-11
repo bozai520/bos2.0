@@ -33,4 +33,13 @@ public interface FixedAreaService {
 	 * @return
 	 */
 	public FixedArea findByFixedArea(FixedArea fixedArea);
+	
+	
+	/**
+	 * 根据fixedAreaId查询 FixedArea对象
+	 * @param fixedArea
+	 * @return
+	 */
+	public FixedArea findByfixedAreaId(String fixedAreaId);
+	
 }

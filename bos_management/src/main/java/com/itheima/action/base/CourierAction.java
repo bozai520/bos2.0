@@ -1,6 +1,7 @@
 package com.itheima.action.base;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
@@ -98,6 +99,20 @@ public class CourierAction extends ActionSupport implements ModelDriven<Courier>
 	 
 	return "success";
 	}
+	
+	
+	//用户信息的全查询：前台页面会传过来两个参数：page  rows;接受参数
+		@Action(value="findAll_courierName",results={@Result(name="success",type="json")})
+		public String findAllName(){
+			
+			//获取到参数之后调用业务逻辑，实现页面数据的分页全查询
+			List<Courier> list = courierService.findAll();
+			
+			//最后将数据压栈
+			ActionContext.getContext().getValueStack().push(list);
+			
+			return "success";
+		}
 
 	
 	

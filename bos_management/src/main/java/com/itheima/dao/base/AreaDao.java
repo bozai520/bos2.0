@@ -23,6 +23,6 @@ public interface AreaDao extends JpaRepository<Area, String>,JpaSpecificationExe
 	@Query(value="select * from t_area where c_province = ? and c_city = ? and c_district = ?",nativeQuery=true)
 	public Area queryByQuYu(String province, String city, String district);
 
-
-	
+	public Area findByProvinceAndCityAndDistrict(String province, String city,
+			String district);
 }

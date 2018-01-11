@@ -29,11 +29,14 @@
 					pageList: [30,50,100],
 					pagination : true,
 					toolbar : toolbar,
-					url : "../../data/take_time.json",
+					singleSelect:true,
+					url : "../../find_takeTime.action",
 					idField : 'id',
 					columns : columns
 				});
 			});	
+			
+			var currentEditIndex;
 			
 			//工具栏
 			var toolbar = [ {
@@ -41,14 +44,34 @@
 				text : '增加',
 				iconCls : 'icon-add',
 				handler : function(){
-					alert('增加');
+					if(currentEditIndex != undefined){
+						$("#grid").datagrid("endEdit",currentEditIndex)
+					}
+//增加收派时间	
+					if(currentEditIndex == undefined){
+						$("#grid").datagrid("insertRow",{
+							index:0,
+							row:{}
+						});
+						
+						$("#grid").datagrid("beginEdit",0);
+						currentEditIndex = 0;
+					}
 				}
 			}, {
 				id : 'button-edit',
-				text : '修改',
+				text : '编辑',
 				iconCls : 'icon-edit',
 				handler : function(){
-					alert('修改');
+					
+				}
+			},{
+			}, {
+				id : 'button-save',
+				text : '保存',
+				iconCls : 'icon-save',
+				handler : function(){
+					
 				}
 			},{
 				id : 'button-delete',
@@ -67,62 +90,134 @@
 				field : 'name',
 				title : '时间名称',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'normalWorkTime',
 				title : '平时上班时间',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'normalDutyTime',
 				title : '平时休息时间',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'satWorkTime',
 				title : '周六上班时间',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'satDutyTime',
 				title : '周六休息时间',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'sunWorkTime',
 				title : '周日上班时间',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'sunDutyTime',
 				title : '周日休息时间',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'status',
 				title : '状态',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'company',
 				title : '所属单位',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			} , {
 				field : 'operator',
 				title : '操作人',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'operatingTime',
 				title : '操作时间',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			}, {
 				field : 'operatingCompany',
 				title : '操作单位',
 				width : 120,
-				align : 'center'
+				align : 'center',
+				editor:{
+					type:"validatebox",
+					options:{
+						required:true
+					}
+				}
 			} ] ];
 		</script>
 	</head>

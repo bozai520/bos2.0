@@ -109,8 +109,7 @@ public class PromotionAction extends ActionSupport implements ModelDriven<Promot
 					.getTemplate("promotion_detail.ftl");
 			
 			//访问数据库查询数据
-			Promotion pro = WebClient.create("http://localhost:9999"
-							+ "/bos_management/services/promotionService/promotion/findByID?id="+promotion.getId()).accept(MediaType.APPLICATION_JSON).get(Promotion.class);
+			Promotion pro = WebClient.create("http://localhost:9999/bos_management/services/promotionService/promotion/findByID?id="+promotion.getId()).accept(MediaType.APPLICATION_JSON).get(Promotion.class);
 			
 			
 			System.out.println("获取到查询到的数据：：：："+pro);

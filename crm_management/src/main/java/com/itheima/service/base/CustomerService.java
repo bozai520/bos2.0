@@ -75,4 +75,13 @@ public interface CustomerService {
 	@Path("/customer/activeCustomer")
 	@Produces("application/json")
 	public ActiveStateCustomer activeCustomer(@QueryParam("telephone") String telephone);
+	/**
+	 * 根据具体的地址值去查询用户信息，从而获取到fixedAreaID
+	 * @return
+	 */
+	@Path("/customer/findByAddress")
+	@GET
+	@Produces("application/json")
+	public Customer findByAddress(@QueryParam("sendAddress") String sendAddress);
+
 }

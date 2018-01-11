@@ -124,33 +124,48 @@ public class SubAreaAction extends ActionSupport implements ModelDriven<SubArea>
 			for (int i = 1; i <= count; i++) {
 				Row row = sheet.getRow(i);
 				//分区编号	定区编码	区域编码	关键字	起始号	结束号	单双号	位置信息
-
+				//分拣编号	省	市	区	关键字	起始号	终止号	单双号	辅助关键字
+				
+				SubArea subArea = new SubArea();
+				
+				//分拣编号
 				String id = row.getCell(0).getStringCellValue();
-				String fixedAreaId = row.getCell(1).getStringCellValue();
-				//封装一个对象
-				FixedArea fixedArea = new FixedArea();
-				fixedArea.setId(fixedAreaId);
-				
-				String areaId = row.getCell(2).getStringCellValue();
-				//再疯转一个对象
-				Area area = new Area();
-				area.setId(areaId);
-				String keyWords = row.getCell(3).getStringCellValue();
-				String startNum = row.getCell(4).getStringCellValue();
-				String endNum = row.getCell(5).getStringCellValue();
-				Character single = row.getCell(6).getStringCellValue().charAt(0);//单双号是Character
-				String assistKeyWords = row.getCell(7).getStringCellValue();
-				
-				
-				
-				SubArea subArea = new SubArea(id, startNum, endNum, single, keyWords, assistKeyWords, area, fixedArea);
+				subArea.setId(id);
+				//省份
+				String province = row.getCell(1).getStringCellValue();
+				System.out.println("省份：："+province);
+				//市
+				String city = row.getCell(2).getStringCellValue();
+				System.out.println("城市：："+city);
+				//区
+				String district = row.getCell(3).getStringCellValue();
+				System.out.println("区：："+district);
+				//创建一个Area对象
+				//获取到对象，根据省市区获取到持久层数据
+				Area area = areaService.findByProvinceAndCityAndDistrict(province,city,district);
+				System.out.println("自己查询到的SubAREA"+area);
+				subArea.setArea(area);
+				//关键字
+				String keyWords = row.getCell(4).getStringCellValue();
+				subArea.setKeyWords(keyWords);
+				//起始号
+				String startNum = row.getCell(5).getStringCellValue();
+				subArea.setStartNum(startNum);
+				//终止号
+				String endNum = row.getCell(6).getStringCellValue();
+				subArea.setEndNum(endNum);
+				//单双号
+				Character single = row.getCell(7).getStringCellValue().charAt(0);
+				subArea.setSingle(single);
+				//辅助关键字
+				String assistKeyWords = row.getCell(8).getStringCellValue();
+				subArea.setAssistKeyWords(assistKeyWords);
 				list.add(subArea);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		//调用业务：将数据保存到数据库中
 		subAreaService.addSubAreaBath(list);
 		

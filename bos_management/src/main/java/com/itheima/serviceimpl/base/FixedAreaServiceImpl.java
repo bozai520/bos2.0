@@ -90,4 +90,10 @@ public class FixedAreaServiceImpl implements FixedAreaService {
 		return queryFixedArea;
 	}
 
+	@Override
+	public FixedArea findByfixedAreaId(String fixedAreaId) {
+		FixedArea fixedArea = fixedAreaDao.findOne(fixedAreaId);
+		return fixedArea;
+	}
+
 }

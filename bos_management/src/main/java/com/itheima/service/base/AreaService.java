@@ -2,10 +2,16 @@ package com.itheima.service.base;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+
 import org.springframework.data.domain.Page;
 
 import com.itheima.domain.base.Area;
-
 public interface AreaService {
 	
 	
@@ -20,7 +26,6 @@ public interface AreaService {
 	 * @return
 	 */
 	public Page<Area> findAll(Area area,int page,int rows);
-	
 	
 	/**
 	 * 上传数据保存到数据库
@@ -59,11 +64,14 @@ public interface AreaService {
 	 * @return
 	 */
 	public Area findByArea(Area area);
-
 	
 	
-
-	
-	
-
+	/**
+	 * 查询Area的数据
+	 * @param province
+	 * @param city
+	 * @param district
+	 * @return
+	 */
+	public Area findByProvinceAndCityAndDistrict(String province,String city,String district);
 }

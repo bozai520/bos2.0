@@ -113,7 +113,8 @@
 			// 定义列
 			var columns = [ [ {
 				field : 'id',
-				checkbox : true,
+				width : 200,
+				checkbox : true
 			},{
 				field : 'province',
 				title : '省',
@@ -152,6 +153,7 @@
 				
 				// 区域管理数据表格
 				$('#grid').datagrid( {
+					url:"../../findAll_area.action",
 					iconCls : 'icon-forward',
 					fit : true,
 					border : false,

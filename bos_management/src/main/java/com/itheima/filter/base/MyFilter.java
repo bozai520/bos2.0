@@ -22,7 +22,6 @@ public class MyFilter extends StrutsPrepareAndExecuteFilter {
 		String uri = request.getRequestURI();
 		
 		//请求路径
-		System.out.println("我当前的请求路径是：：：："+uri);
 		String regex = "/services/";
 		if(uri.contains(regex)){
 			chain.doFilter(req, res);

@@ -131,4 +131,12 @@ public class AreaServiceImpl implements AreaService {
 		Area queryArea = areaDao.queryByQuYu(area.getProvince(),area.getCity(),area.getDistrict());
 		return queryArea;
 	}
+
+
+	@Override
+	public Area findByProvinceAndCityAndDistrict(String province, String city,String district) {
+		Area area = areaDao.findByProvinceAndCityAndDistrict(province,city,district);
+		return area;
+	}
+
 }

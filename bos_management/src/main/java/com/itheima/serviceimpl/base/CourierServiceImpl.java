@@ -1,6 +1,7 @@
 package com.itheima.serviceimpl.base;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -53,6 +54,12 @@ public class CourierServiceImpl implements CourierService {
 			courierDao.doRestore(id);
 		}
 		
+	}
+
+	@Override
+	public List<Courier> findAll() {
+		List<Courier> list = courierDao.findAll();
+		return list;
 	}
 
 }

@@ -72,13 +72,9 @@
 						//遍历返回的JSON数据
 						$("#noassociationSelect").empty();
 						$(data).each(function(){
-							alert(this.id);
 							var option ="<option value="+this.id+">"+this.username+"("+this.company+")</option>";
 							$("#noassociationSelect").append($(option));
 						});
-						
-						
-					
 					})
 					//获取已关联用户数据
 					var id = row.id;
@@ -580,13 +576,19 @@
 							<td>
 								<!-- 存放定区编号 -->
 								<input type="hidden" name="id" id="courierFixedAreaId" />
-								<input type="text" name="courierId" class="easyui-combobox" required="true" />
+								<input type="text" name="courierId" class="easyui-combobox" required="true"
+									data-options="valueField:'id',width:'100',
+									textField:'name',
+									url:'../../findAll_courierName.action'" />
 							</td>
 						</tr>
 						<tr>
 							<td>选择收派时间</td>
 							<td>
-								<input type="text" name="takeTimeId" class="easyui-combobox" required="true" />
+								<input type="text" name="takeTimeId" class="easyui-combobox" required="true" 
+								data-options="valueField:'id',width:'100',
+									textField:'name',
+									url:'../../find_takeTime.action'" />
 							</td>
 						</tr>
 						<tr>

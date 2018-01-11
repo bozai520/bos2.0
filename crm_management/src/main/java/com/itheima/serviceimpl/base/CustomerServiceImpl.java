@@ -2,7 +2,6 @@ package com.itheima.serviceimpl.base;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,6 +84,13 @@ public class CustomerServiceImpl implements CustomerService {
 		System.out.println(customer);
 		activeStateCustomer.setMsg(msg);
 		return activeStateCustomer;
+	}
+
+	@Override
+	public Customer findByAddress(String sendAddress) {
+		System.out.println("我进入Crm_management系统了");
+		Customer customer = customerDao.findByAddress(sendAddress);
+		return customer;
 	}
 
 

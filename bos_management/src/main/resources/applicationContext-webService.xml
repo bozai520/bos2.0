@@ -20,5 +20,10 @@
 				<bean class="com.itheima.serviceimpl.base.PromotionServiceImpl"></bean>
 			</jaxrs:serviceBeans>
 		</jaxrs:server>
+		<jaxrs:server id="orderService" address="/orderService">
+			<jaxrs:serviceBeans>
+				<bean class="com.itheima.serviceimpl.base.OrderServiceImpl"></bean>
+			</jaxrs:serviceBeans>
+		</jaxrs:server>
 	
 </beans>

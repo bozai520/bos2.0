@@ -138,9 +138,24 @@ public class AreaAction extends ActionSupport implements ModelDriven<Area>{
 				
 				Row row = sheet.getRow(i);
 				
+				Area area = new Area();
+				//区域编码
 				String id = row.getCell(0).getStringCellValue();
-				String province = row.getCell(1).getStringCellValue();
+				area.setId(id);
 				
+				//省份
+				String province = row.getCell(1).getStringCellValue();
+				area.setProvince(province);
+				//市
+				String city = row.getCell(2).getStringCellValue();
+				area.setCity(city);
+				
+				//区
+				String district = row.getCell(3).getStringCellValue();
+				area.setDistrict(district);
+				//邮编
+				String postcode = row.getCell(4).getStringCellValue();
+				area.setPostcode(postcode);
 				//生成省份的简码
 				String[] str = PinYin4jUtils.getHeadByString(province);
 				String shortcode = "";
@@ -148,15 +163,11 @@ public class AreaAction extends ActionSupport implements ModelDriven<Area>{
 				for (int j = 0; j < str.length; j++) {
 					shortcode+=str[j];
 				}
-				String city = row.getCell(2).getStringCellValue();
-				
+				area.setShortcode(shortcode);
 				//生成市的简码
 				String citycode = PinYin4jUtils.hanziToPinyin(city);
+				area.setCitycode(citycode);
 				
-				String district = row.getCell(3).getStringCellValue();
-				String postcode = row.getCell(4).getStringCellValue();
-				
-				Area area = new Area(id, province, city, district, citycode, shortcode);
 				list.add(area);
 			}
 			

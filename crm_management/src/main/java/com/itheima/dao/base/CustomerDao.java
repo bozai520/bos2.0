@@ -37,6 +37,9 @@ public interface CustomerDao extends JpaRepository<Customer, Integer>,JpaSpecifi
 	 */
 	public Customer findByTelephone(String telephone);
 
+
+	public Customer findByAddress(String sendAddress);
+
 	
 	
 //	@Query(value="update T_CUSTOMER set c_type = 1 where telephone = ?",nativeQuery=true)
